@@ -24,14 +24,12 @@ SAML 2.0 and Identity Notes
 ## Traditional Web Application Identity Flow
 
 ```
---------+ +--------+ +-------------+ +-----------+
++--------+ +--------+ +-------------+ +-----------+ +-----------+
 | User | -----> | Browser| -----> | Web App | -----> | Database |
-| | | (e.g., | | | | |
-| | | Chrome)| | Business | | App Data |
-| | | | | Logic | | + User ID |
-+--------+ +--------+ +-------------+ +-----------+
+|               | Chrome |        | Business|        | App Data |
+|                                 | Logic   |        |+ User ID |
++--------+ +--------+ +-------------+ +-----------+ +-----------+
 ```
-
 
 ### Explanation
 
