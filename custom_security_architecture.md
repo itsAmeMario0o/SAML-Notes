@@ -51,7 +51,7 @@ The burden of **authenticating and authorizing the user** falls entirely on the 
 
 This model tightly couples identity with the application, making **identity verification an application-layer responsibility** and a bottleneck.
 
-# Web App-Centric Identity and Authorization Flow
+## Web App-Centric Identity and Authorization Flow
 
 ```
 +--------+ +--------+ +-------------+ +-----------+ +-----------+
