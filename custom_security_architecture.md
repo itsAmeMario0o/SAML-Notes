@@ -1,4 +1,7 @@
-# Custom Security Architecture
+# SAML-Notes
+SAML 2.0 and Identity Notes
+
+## Custom Security Architecture
 
 ```
          +----------------------------+
