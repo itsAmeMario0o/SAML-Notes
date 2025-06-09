@@ -50,3 +50,64 @@ The burden of **authenticating and authorizing the user** falls entirely on the 
 - Storing and retrieving user identity information from the local database
 
 This model tightly couples identity with the application, making **identity verification an application-layer responsibility** and a bottleneck.
+
+# Web App-Centric Identity and Authorization Flow
+
+```
++--------+ +--------+ +-------------+ +-----------+ +-----------+
+| User | -----> | Browser | -----> | Web App | -----> | Database |
+|               | Chrome  |        | Business|        | App Data |
+|                                  | Logic   |                   |
+|                                                     |+ User ID |
+|                                  | + User         |            |
+|                                  | Authentication |            |
+|                                                     | + User   |
+|                                                     |  Roles   |
+|                                  | + Identity     |            |
+|                                  | Provisioning   |            |
++--------+ +--------+ +-------------+ +-----------+ +-----------+
+```
+
+### Process Overview
+
+1. **User Login**:
+   - The user submits login credentials via the browser.
+   - The **Web Application** validates the credentials against stored identity data in the **Database**.
+
+2. **Session Establishment**:
+   - If successful, the application creates a **server-side session object**.
+   - A **cookie** is sent to the user's browser—this cookie holds a session ID that maps to the server's session object.
+
+3. **Subsequent Requests**:
+   - The browser presents the cookie automatically.
+   - The Web Application uses the cookie to find the session object and validate the user’s identity and **roles**.
+
+4. **Access Control**:
+   - Role-based logic is applied server-side to determine which data/views the user can access.
+
+5. **Logout**:
+   - The session object is invalidated.
+   - The browser cookie is cleared, terminating the authenticated session.
+
+---
+
+### Identity Provisioning
+
+> How are users and roles created?
+
+This is handled through **identity provisioning**, which includes:
+
+- Creating and updating user accounts.
+- Assigning roles (permissions and access scope).
+- Managing the full lifecycle of digital identities (creation, modification, deactivation).
+
+Provisioning can be done manually (admin input), programmatically (e.g. APIs), or through federation/integration with an external identity provider.
+
+---
+
+### Summary
+
+- Identity authentication + authorization logic is embedded in the application.
+- The app is responsible for maintaining **both user trust and session state**.
+- Cookies and sessions form the bridge between **client-side continuity** and **server-side access control**.
+
