@@ -25,9 +25,12 @@ SAML 2.0 and Identity Notes
 
 ```
 +--------+ +--------+ +-------------+ +-----------+ +-----------+
-| User | -----> | Browser| -----> | Web App | -----> | Database |
-|               | Chrome |        | Business|        | App Data |
-|                                 | Logic   |        |+ User ID |
+| User | -----> | Browser | -----> | Web App | -----> | Database |
+|               | Chrome  |        | Business|        | App Data |
+|                                  | Logic   |                   |
+                                                      |+ User ID |
+|                                  | + User         |            |
+|                                  | Authentication |            |
 +--------+ +--------+ +-------------+ +-----------+ +-----------+
 ```
 
